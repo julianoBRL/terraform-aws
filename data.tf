@@ -2,7 +2,7 @@
 
 # Obtém a identidade da conta atual
 data "aws_caller_identity" "current" {}
-
+ 
 ######################################
 #
 # DEADLETTER QUEUE

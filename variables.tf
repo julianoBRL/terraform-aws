@@ -10,7 +10,7 @@ variable "sqs_terraform_demo_queue_deduplication_scope" {
   type = string
   default = "messageGroup"
 }
-
+ 
 
 
 
