@@ -12,6 +12,7 @@ resource "aws_sqs_queue" "sqs_terraform_demo_queue_deadletter" {
   name                          = "${var.sqs_terraform_demo_queue_deadletter_name}.fifo"
   message_retention_seconds     = 86400
   fifo_queue                    = true
+  delay_seconds                 = 60
   content_based_deduplication   = true
   deduplication_scope           = var.sqs_terraform_demo_queue_deadletter_deduplication_scope
   fifo_throughput_limit         = "perMessageGroupId"
@@ -34,6 +35,7 @@ resource "aws_sqs_queue_policy" "sqs_terraform_demo_queue_deadletter_policy" {
 resource "aws_sqs_queue" "sqs_terraform_demo_queue" {
   name                          = "${var.sqs_terraform_demo_queue_name}.fifo"
   message_retention_seconds     = 16400
+  delay_seconds                 = 60
   fifo_queue                    = true
   content_based_deduplication   = true
   deduplication_scope           = var.sqs_terraform_demo_queue_deduplication_scope
