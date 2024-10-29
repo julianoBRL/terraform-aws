@@ -8,7 +8,7 @@ data "aws_caller_identity" "current" {}
 # DEADLETTER QUEUE
 #
 ######################################
-data "aws_iam_policy_document" "sqs_terraform_demo_queue_dl_policy_document" {
+data "aws_iam_policy_document" "sqs_terraform_demo_queue_deadletter_policy_document" {
   version = "2012-10-17"
   statement {
     effect = "Allow"
@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "sqs_terraform_demo_queue_dl_policy_document" {
       "sqs:ReceiveMessage",
       "sqs:SendMessage"
     ]
-    resources = [aws_sqs_queue.sqs_terraform_demo_queue_dl.arn]
+    resources = [aws_sqs_queue.sqs_terraform_demo_queue_deadletter.arn]
     principals {
       type = "AWS"
       identifiers = [data.aws_caller_identity.current.account_id]
