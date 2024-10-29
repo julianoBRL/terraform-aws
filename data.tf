@@ -50,7 +50,7 @@ data "aws_iam_policy_document" "sqs_terraform_demo_queue_policy_document" {
       "sqs:ReceiveMessage",
       "sqs:SendMessage"
     ]
-    resources = [aws_sqs_queue.sqs_terraform_demo_queue_policy.arn]
+    resources = [aws_sqs_queue.sqs_terraform_demo_queue.arn]
     principals {
       type = "AWS"
       identifiers = [data.aws_caller_identity.current.account_id]
